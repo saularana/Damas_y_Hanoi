@@ -4,6 +4,7 @@
  */
 package git.ipc1.View.menuPrincipal;
 
+import git.ipc1.Models.damas.Board;
 import git.ipc1.Models.usuarios.Arrayuser;
 import git.ipc1.View.users.EditUsers;
 import git.ipc1.View.users.Usersframe;
@@ -222,6 +223,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        Board t = new Board();
+        System.out.println(t);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MenuPrincipal().setVisible(true);
