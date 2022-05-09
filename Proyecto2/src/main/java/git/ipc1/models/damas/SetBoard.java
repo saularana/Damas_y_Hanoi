@@ -1,8 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package git.ipc1.dharch.damas;
+package git.ipc1.models.damas;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -21,13 +17,12 @@ public class SetBoard extends JPanel implements ActionListener {
     ;
 
 	private Damas damas = new Damas();
-
-    private final URL fichanegra = getClass().getResource("/pictures/fichaNn.jpg");
-    private final URL ficharroja = getClass().getResource("/pictures/fichaRn.jpg");
-    private final URL reinaroja = getClass().getResource("/pictures/fichaRRn.jpg");
-    private final URL reinanegra = getClass().getResource("/pictures/fichaRNn.jpg");
-    private final URL vacionegro = getClass().getResource("/pictures/EspacionNegro.png");
-    private final URL vacioblanco = getClass().getResource("/pictures/EspacionBlanco.png");
+    private final URL fichanegra = getClass().getResource("/Imagenes/fichaNn.jpg");
+    private final URL ficharroja = getClass().getResource("/Imagenes/fichaRn.jpg");
+    private final URL reinaroja = getClass().getResource("/Imagenes/fichaRRn.jpg");
+    private final URL reinanegra = getClass().getResource("/Imagenes/fichaRNn.jpg");
+    private final URL vacionegro = getClass().getResource("/Imagenes/EspacionNegro.png");
+    private final URL vacioblanco = getClass().getResource("/Imagenes/EspacionBlanco.png");
 
     //private PanelImagen imagen= new PanelImagen();
     private int ancho = 60, alto = 60;
