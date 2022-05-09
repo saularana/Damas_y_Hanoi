@@ -6,12 +6,13 @@ package git.ipc1.view.menuprincipal;
 
 import git.ipc1.models.usuarios.Arrayuser;
 import git.ipc1.view.damas.DamasFrame;
-import git.ipc1.view.hanoi.HanoiForm;
+//import git.ipc1.view.hanoi.HanoiForm;
 import git.ipc1.view.users.EditUsers;
 import git.ipc1.view.users.Usersframe;
 import java.awt.Label;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -27,6 +28,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
      */
     public MenuPrincipal() {
         initComponents();
+        ComboBoxUser2.setVisible(false);
+        jButton2.setEnabled(false);
 //        ImageIcon pic = new ImageIcon(getClass().getResource("/pictures/fichaNn.jpg"));
 //        JLabel did = new JLabel(pic);
 //        did.setVisible(true);
@@ -42,6 +45,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if (!usersgame.getTona(i).equals("vacio")) {
                 ComboBoxUser1.addItem(usersgame.getTona(i));
                 ComboBoxUser2.addItem(usersgame.getTona(i));
+                jButton2.setEnabled(true);
                 //System.out.println(usersgame.getTona(i));
             }
             } catch (Exception e) {
@@ -95,9 +99,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().add(ButtonUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, -1, -1));
 
         jButton2.setText("Play");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, -1, -1));
@@ -147,8 +151,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
             ComboBoxUser2.setVisible(false);
         }
         if (option.equals("Damas")) {
-            jComboBox2.setVisible(true);
+            if(((String)this.jComboBox2.getSelectedItem()).equals("1Player")){
+                jComboBox2.setVisible(true);
+            ComboBoxUser2.setVisible(false);
+            }
+            if(((String)this.jComboBox2.getSelectedItem()).equals("2Players")){
+                jComboBox2.setVisible(true);
             ComboBoxUser2.setVisible(true);
+            }
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
@@ -164,7 +174,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowGainedFocus
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-
+ String option = (String) this.jComboBox2.getSelectedItem();
+        if (option.equals("1Player")) {
+//            ComboBoxUser2.setVisible(false);
+//            ComboBoxUser2.setSelectedIndex(0);
+            ComboBoxUser2.setVisible(false);
+        }
+        if (option.equals("2Players")) {
+//            jComboBox2.setVisible(true);
+            ComboBoxUser2.setVisible(true);
+        }
         /*
         String option1 = (String) this.ComboBoxUser2.getSelectedItem();
         if (option1.equals("2Players")){
@@ -207,18 +226,23 @@ public class MenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1MouseClicked
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        String option = (String) this.jComboBox1.getSelectedItem();
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+String option = (String) this.jComboBox1.getSelectedItem();
         if (option.equals("Hanoi")) {
-            new HanoiForm();
+//            new HanoiForm();
+            JOptionPane.showMessageDialog(null, "Juego Fuera de Servicio");
         }
         if (option.equals("Damas")) {
             //            new DamasFrame(1,1);
-            new DamasFrame();
+            if ( ((String)this.jComboBox2.getSelectedItem()).equals("1Player")) {
+                new DamasFrame(1,2);
+            }
+            if ( ((String)this.jComboBox2.getSelectedItem()).equals("2Players")) {
+                new DamasFrame(2,2);
+            }
 
-        }
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2MouseClicked
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

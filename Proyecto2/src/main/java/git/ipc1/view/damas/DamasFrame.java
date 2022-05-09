@@ -21,8 +21,8 @@ public class DamasFrame extends javax.swing.JFrame {
     /**
      * Creates new form Principal
      */
-//    public DamasFrame(int player1, int player2) {
-    public DamasFrame() {
+    public DamasFrame(int player1, int player2) {
+//    public DamasFrame() {
         super("Damas");
         initComponents();
 //        this.add(new tablero());
@@ -39,8 +39,8 @@ public class DamasFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         Actualizar_botones();
         // 1 IA 2 jugador;
-//        juego.cambiar(player1,player2);
-        juego.cambiar(1,1);
+        juego.cambiar(player1,player2);
+//        juego.cambiar(1,1);
 
     }
 
